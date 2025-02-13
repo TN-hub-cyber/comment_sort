@@ -74,8 +74,15 @@ def extract_timestamps(text):
 
 def main():
     st.title("YouTube タイムスタンプ ソート")
-    st.write("YouTubeのコメントからタイムスタンプを抽出し、時系列順に並び替えます。")
-    
+    st.write("YouTubeのコメントからタイムスタンプだけを抽出し、時系列順に並び替えます。")
+    st.write("1分以内の間隔のタイムスタンプは最も早い時間のものだけ残します。")
+    st.write("全く同じ時間のコメントは1つだけ残します。")
+    # 画像を横並びで表示
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("images/step1.PNG", caption="step1", use_container_width=True)
+    with col2:
+        st.image("images/step2.PNG", caption="step2", use_container_width=True)
     # テキストエリアの入力
     input_text = st.text_area(
         "YouTubeのコメントを貼り付けてください",
